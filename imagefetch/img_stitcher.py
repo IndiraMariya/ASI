@@ -50,7 +50,7 @@ def play_video(video_path):
     cv2.destroyAllWindows()  # Close all OpenCV windows
 
 if __name__ == "__main__":
-    image_folder = '/Users/indiram/ASI/images2'
+    image_folder = '/Users/indiram/ASI/images/images2'
     video_filename = 'stitches/sunimagesstitched.avi'
     output_fps = 30  # Adjust the frames per second as needed
     create_video(image_folder, video_filename, output_fps)

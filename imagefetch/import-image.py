@@ -3,16 +3,19 @@ import os
 import sys
 
 # COMMANDLINE ARGUMENTS
-download_path = sys.argv[1]
+# download_path = sys.argv[1]
 
 # SDO WEBSITE URL
 latest_url = "https://sdo.gsfc.nasa.gov/assets/img/latest"
 
 # DOWNLOAD PATH
-localdir = download_path
+localdir = '/Users/indiram/ASI/images/images4'
 
-channels = ["0094", "0131", "0171", "0193", "0211", "0304", "0335", "1600", "1700", "HMIB", "HMII", "HMID", "HMIBC", "HMIIF", "HMIIC"]
-resolutions = ["4096", "2048", "1024", "512"]
+# "0094", "0131", "0171", "0193", "0211", "0304", "1600", "1700", 
+# "4096", "2048", "1024", 
+
+channels = ["0335", "HMIB", "HMII", "HMID", "HMIBC", "HMIIF", "HMIIC"]
+resolutions = ["512"]
 
 for channel in channels:
     for resoltion in resolutions:
