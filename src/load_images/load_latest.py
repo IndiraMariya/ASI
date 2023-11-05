@@ -1,6 +1,6 @@
 import requests
 import os
-import sys
+# import sys
 
 # COMMANDLINE ARGUMENTS
 # download_path = sys.argv[1]
@@ -9,7 +9,7 @@ import sys
 latest_url = "https://sdo.gsfc.nasa.gov/assets/img/latest"
 
 # DOWNLOAD PATH
-localdir = '/Users/indiram/ASI/images/images4'
+localdir = '/Users/indiram/ASI/imagefetch/images/images5'
 
 # "0094", "0131", "0171", "0193", "0211", "0304", "1600", "1700", 
 # "4096", "2048", "1024", 

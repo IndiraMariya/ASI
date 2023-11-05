@@ -14,11 +14,11 @@
 ######################################################################
 
 # COMMANDLINE ARGUMENTS
-STARTDATE=date
-ENDDATE=date -v -2d
-CHANNEL=HMIB
-RESOLUTION=512
-DOWNLOAD_PATH=/Users/indiram/ASI/images/images4
+STARTDATE='2022-01-01'
+ENDDATE='2022-01-02'
+CHANNEL='HMIB'
+RESOLUTION='512'
+DOWNLOAD_PATH='/Users/indiram/ASI/src/imagefetch/images/HMIB-010122-010222'
 
 # SDO WEBSITE URL
 SDOURL=https://sdo.gsfc.nasa.gov
@@ -41,16 +41,14 @@ echo "DOWNLOAD PATH: "$LOCALDIR
 echo -e "\n"
 
 val=0
-i=0
-
-for (( i=$STARTSECONDS ; i<=$ENDSECONDS ; i+=86400 )); 
+for (( i=$STARTSECONDS; i<=$ENDSECONDS; i+=86400 ))
 do
-    NEXTDATEPATH=$(date -j -u -f %s "${i}" +%Y/%m/%d)
-    NEXTDATESTRING=$(date -j -u -f %s "${i}" +%Y%m%d)
-    URL=${BROWSEDIR}/${NEXTDATEPATH}
-    ACCEPT=${NEXTDATESTRING}_*_${RESOLUTION}_${CHANNEL}.jpg
-    printf "Downloading Images from: %s\r" "$URL"
-    wget -N -q -nd --no-check-certificate --level=1 --recursive -e robots=off --no-parent -R "index.html*" -A $ACCEPT $URL --directory-prefix=$LOCALDIR
+	NEXTDATEPATH=$(date -j -u -f %s "${i}" +%Y/%m/%d)
+	NEXTDATESTRING=$(date -j -u -f %s "${i}" +%Y%m%d)
+	URL=${BROWSEDIR}/${NEXTDATEPATH}
+	ACCEPT=${NEXTDATESTRING}_*_${RESOLUTION}_${CHANNEL}.jpg
+	printf "Downloading Images from: %s\r" "$URL"
+	wget -q -nd --no-check-certificate --level=1 --recursive -e robots=off --no-parent -R "index.html*" -A $ACCEPT $URL --directory-prefix=$LOCALDIR
 done
 
 echo -e "\n"Script complete: $(date)

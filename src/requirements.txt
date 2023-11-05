@@ -1,0 +1,6 @@
+scipy
+requests
+BeautifulSoup
+pandas
+cv2
+os
