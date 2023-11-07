@@ -1,6 +1,5 @@
 import requests
 import re
-import csv
 from bs4 import BeautifulSoup
 
 # URL of the page to scrape
@@ -90,7 +89,7 @@ def get_matching_files(url):
 
 def get_filepaths():
     paths = []
-    
+    file_path = "files.txt"
     for year in years:
         months = getMonths(url, year)
         for month in months:
@@ -99,9 +98,14 @@ def get_filepaths():
                 day_url = url+year+month+day
                 # paths.append(f"{date}_{time}_{resoltion}_0335.jpg")
                 paths = get_matching_files(day_url)
-                print(paths)
+                with open(file_path, 'a') as file:
+                    for path in paths:
+                        file.write(path + "\n")  # Each item on a new line
+
+                # print(paths)
     
     return paths
 
 if __name__ == "__main__":
-    print(get_filepaths())
+    get_filepaths()
+
