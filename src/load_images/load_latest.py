@@ -9,10 +9,11 @@ import os
 latest_url = "https://sdo.gsfc.nasa.gov/assets/img/latest"
 
 # DOWNLOAD PATH
-localdir = '/Users/indiram/ASI/imagefetch/images/images5'
+localdir = '/home/ubuntu/ASI/src/data/mk-2021_images'
 
-# "0094", "0131", "0171", "0193", "0211", "0304", "1600", "1700", 
-# "4096", "2048", "1024", 
+
+# "0094", "0131", "0171", "0193", "0211", "0304", "1600", "1700",
+# "4096", "2048", "1024",
 
 channels = ["0335", "HMIB", "HMII", "HMID", "HMIBC", "HMIIF", "HMIIC"]
 resolutions = ["512"]
@@ -22,7 +23,7 @@ for channel in channels:
         FILENAME = f"latest_{resoltion}_{channel}.jpg"
         URL = f"{latest_url}/{FILENAME}"
         FILE_PATH = os.path.join(localdir, FILENAME)
-
+        print(FILE_PATH)
         # Download the file
         response = requests.get(URL)
         if response.status_code == 200:

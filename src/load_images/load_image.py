@@ -10,14 +10,14 @@ import time
 latest_url = "https://sdo.gsfc.nasa.gov/assets/img/browse/2021"
 
 # DOWNLOAD PATH
-localdir = '/home/ubuntu/ASI/src/data/2021_images'
+localdir = '/home/ubuntu/ASI/src/data/mk-2021_images'
 filesdir = '/home/ubuntu/ASI/src/load_images/2021_file_paths.txt'
 
 file = open(filesdir, "r")
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
 
 files = file.readlines()
-delay_seconds = 3  
+delay_seconds = 30
 
 for file_line in files:
     FILENAME = file_line
@@ -25,22 +25,19 @@ for file_line in files:
     URL = f"{latest_url}/{path}/{FILENAME}"
     FILE_PATH = os.path.join(localdir, FILENAME)
 
+    print(URL)
     # Download the file
+    response = requests.get(URL, headers=headers)
     try:
-        response = requests.get(URL, headers=headers).raise_for_status()
-        with open(FILE_PATH, 'wb') as file:
-            file.write(response.content)
-        print(f"Image downloaded successfully to {FILE_PATH}")
-    except requests.exceptions.RequestException as e:
-        print(f"Error downloading image: {e}")
+        print (response)
+        if response.status_code == 200:
+            with open(FILE_PATH, "wb") as file:
+                file.write(response.content)
+            print(f"Downloaded: {FILE_PATH}")
+        else:
+            print(f"Failed to download: {URL}")
+    except:
+        pass
+    time.sleep(delay_seconds)
 
-
-
-
-    # if response.status_code == 200:
-    #     with open(FILE_PATH, "wb") as file:
-    #         file.write(response.content)
-    #     print(f"Downloaded: {FILE_PATH}")
-    # else:
-    #     print(f"Failed to download: {URL}")
 file.close()
