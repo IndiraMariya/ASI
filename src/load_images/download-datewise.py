@@ -65,27 +65,27 @@ path = ""
 
 for y1 in years:
     year = "{:04d}".format(y1)
-    path = os.path.join(localdir, str(y1))
+    year_path = os.path.join(localdir, str(year))
     try:
-        os.mkdir(path) 
+        os.mkdir(year_path) 
     except:
         print("Directory Already Exists")
     for m1 in months:
         month  = "{:02d}".format(m1)
-        path = os.path.join(path, str(m1))
+        month_path = os.path.join(year_path, str(month))
         try:
-            os.mkdir(path) 
+            os.mkdir(month_path) 
         except:
             print("Directory Already Exists")
         for d1 in days:
             day  = "{:02d}".format(d1)
-            path = os.path.join(path, str(d1))
+            day_path = os.path.join(month_path, str(day))
             try:
-                os.mkdir(path) 
+                os.mkdir(day_path) 
             except:
                 print("Directory Already Exists")
             image_list_url = "{:}/{:}/{:}/{:}/".format(base_url, year, month, day)
             html_content = get_images_index (image_list_url)
             for channel in channels:
                 if html_content != None:
-                    download_images (image_list_url, html_content, channel, "512", path)
+                    download_images (image_list_url, html_content, channel, "512", day_path)
