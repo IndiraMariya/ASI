@@ -6,17 +6,17 @@ import os
 # download_path = sys.argv[1]
 
 # SDO WEBSITE URL
-latest_url = "https://sdo.gsfc.nasa.gov/assets/img/latest"
+latest_url = "https://sdo.gsfc.nasa.gov/assets/img/browse/2023"
 
 # DOWNLOAD PATH
-localdir = '/home/ubuntu/ASI/src/data/mk-2021_images'
+localdir = 'data/images'
 
 
 # "0094", "0131", "0171", "0193", "0211", "0304", "1600", "1700",
 # "4096", "2048", "1024",
 
-channels = ["0335", "HMIB", "HMII", "HMID", "HMIBC", "HMIIF", "HMIIC"]
-resolutions = ["512"]
+channels = ["0335", "HMIB", "HMIIC"]
+months = []
 
 for channel in channels:
     for resoltion in resolutions:
