@@ -29,7 +29,7 @@ def get_save_image (url, file_name, file_path):
             file.write(response.content)
         print(f"Downloaded: {FILE_PATH}")
     else:
-        print(f"Failed to download: {URL}")
+        print(f"Failed to download: {url}")
 
 
 def get_images_index (index_url):
