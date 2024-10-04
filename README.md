@@ -1,5 +1,5 @@
 # ASI
-## Advanced Scientific Investion Class at Los Altos High School
+## Advanced Scientific Investigation at LAHS
 
 ```shell
 $ pip install -r requirements.txt
