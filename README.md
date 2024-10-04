@@ -17,6 +17,12 @@ This research aims to combine machine learning and physics to optimize solar fla
 
 1. **Image Data**  
    - Filtograms, HMI continuums, and magnetograms from the **Solar Dynamics Observatory**.
+<p align="center">
+  <img src="/Users/indiram/ASI/data/images/0335-010122-010222/20220101_004050_512_0335.jpg" alt="Image 1" width="25%">
+  <img src="/Users/indiram/ASI/data/images/HMIB-010122-010222/20220101_014500_512_HMIB.jpg" alt="Image 2" width="25%">
+  <img src="/Users/indiram/ASI/data/images/HMIIC-010122-010222/20220101_013000_512_HMIIC.jpg" alt="Image 3" width="25%">
+</p>
+
 
 2. **Numerical Data**  
    - The **F10.7 index** of solar weather from the Canadian government, which shows spikes during flares.
